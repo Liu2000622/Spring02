@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="disk1" class="Sound.disk"></bean>
+
+    <bean id="player1" class="Sound.cdplayer">
+        <constructor-arg ref="disk1"></constructor-arg>
+    </bean>
+
+    <bean id="player2" class="Sound.cdplayer" c:disk-ref="disk1"></bean>
+
+    <bean id="disk2" class="Sound.disk">
+        <constructor-arg value="1"></constructor-arg>
+        <constructor-arg name="track">
+            <set>
+                <value>liu</value>
+                <value>liu</value>
+                <value>wang</value>
+                <value>ma</value>
+            </set>
+        </constructor-arg>
+    </bean>
+    <bean id="music1" class="Sound.music">
+        <property name="time" value="10"></property>
+        <property name="title" value="liujingyun"></property>
+    </bean>
+
+
+</beans>
